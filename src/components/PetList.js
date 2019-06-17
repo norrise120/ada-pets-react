@@ -10,16 +10,18 @@ class PetList extends React.Component {
     super(props);
   }
 
-  
   render () {
     const petCardComponents = this.props.pets.map((pet) => {
-      const { id, name, species, about, location } = pet;
+      const { id, name, species, about, location, images } = pet;
       return (<li key={id}><PetCard
         key={id}
+        id={id}
         name={name}
         species={species}
         about={about}
         location={location}
+        images={images}
+        selectPetCallback={this.props.selectPetCallback}
       />
       </li>);
     });
