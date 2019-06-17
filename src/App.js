@@ -20,9 +20,13 @@ class App extends Component {
     };
   }
 
-  selectPet = (petId) => {
-    console.log(petId);
-    this.setState({currentPet: petId});
+  selectPet = (pet) => {
+    console.log(pet);
+    this.setState({currentPet: pet});
+  }
+
+  deselectPet = () => {
+    this.setState({currentPet: undefined});
   }
 
   render() {
@@ -44,7 +48,7 @@ class App extends Component {
         </section>
           {petDetailsDisplay}
         <section className="pet-list-wrapper">
-          <PetList pets={pets} selectPetCallback={this.selectPet} />
+          <PetList pets={pets} selectPetCallback={this.selectPet} deselectPetCallback={this.deselectPet}/>
         </section>
         <section className="new-pet-form-wrapper">
            <NewPetForm />

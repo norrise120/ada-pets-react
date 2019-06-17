@@ -22,6 +22,7 @@ class PetList extends React.Component {
         location={location}
         images={images}
         selectPetCallback={this.props.selectPetCallback}
+        deselectPetCallback={this.props.deselectPetCallback}
       />
       </li>);
     });
