@@ -5,25 +5,31 @@ import PetCard from './PetCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const PetList = (props) => {
+class PetList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const petCardComponents = props.pets.map((pet) => {
-    const { id, name, species, about, location } = pet;
-    return (<li key={id}><PetCard
-      key={id}
-      name={name}
-      species={species}
-      about={about}
-      location={location}
-    />
-    </li>);
-  });
+  
+  render () {
+    const petCardComponents = this.props.pets.map((pet) => {
+      const { id, name, species, about, location } = pet;
+      return (<li key={id}><PetCard
+        key={id}
+        name={name}
+        species={species}
+        about={about}
+        location={location}
+      />
+      </li>);
+    });
 
-  return (
-    <div className="card-group">
-      {petCardComponents}
-    </div>
-  )
+    return (
+      <div className="card-group">
+        {petCardComponents}
+      </div>
+    )
+  }
 }
 
 PetList.propTypes = {
